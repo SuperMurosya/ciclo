@@ -1,0 +1,47 @@
+.bullets {
+	position: fixed;
+	top: 50%;
+	transform: translate(-50%, 50%);
+	@include adaptive("left", 120, 7.5);
+	max-height: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
+	gap: rem(10);
+	@media (max-width: $mobile) {
+		right: rem(20);
+		
+	}
+	@media (max-width: $mobile) {
+		top: auto;
+		bottom: rem(20);
+		transform: translate(50%, 0);
+		flex-direction: row;
+		right: 50%;
+		
+	}
+	& .bullet {
+		cursor: pointer;
+		width: rem(5);
+		height: rem(35);
+		flex: 0 0 rem(20);
+		background-color: #000;
+		opacity: 0.5;
+		transition: opacity 0.8s;
+		@media (any-hover: hover) {
+			&:hover {
+				opacity: 1;
+			}
+			
+		}	
+	
+	}
+
+	& .bullet-active {
+		opacity: 1;
+
+	}
+}

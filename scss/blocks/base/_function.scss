@@ -1,0 +1,70 @@
+@use "sass:math";
+
+
+$min-width: 320;
+
+// $mobile: 768;
+
+$maxWidthContainer: 1920;
+
+// $max-width: 1920;
+
+$containerPadding: 240;
+
+$rem-base: 16;
+
+
+@mixin adaptive($name-value, $max-value, $min-value) {
+	
+	
+
+	$maxWidthContainerRem: math.div($maxWidthContainer, $rem-base);
+
+	
+	$different: $max-value - $min-value;
+	
+
+	$differentRem: math.div($different, $rem-base);
+
+	$coeficientRem: math.div($differentRem, math.div(($maxWidthContainer - $min-width), $rem-base));
+	
+	$coeficient-two: $min-value - ($coeficientRem * $min-width);
+	$coeficient-two: math.div($coeficient-two, $rem-base);
+	$coeficient-two: $coeficient-two + rem;
+
+
+	#{$name-value}: #{calc($coeficient-two +  $coeficientRem * 100vw )};
+
+	
+
+ //font-size: calc(24px + 16 * ((100vw - 320px) / (1280 - 320))); - основа
+
+
+
+	@media (min-width: ($maxWidthContainer + px)) {
+
+		
+		#{$name-value}: rem($max-value);
+	}
+
+
+
+}
+
+
+
+
+
+
+
+
+@function rem($pixel) {
+	$result : math.div($pixel, $rem-base) + rem;
+	@return $result;
+}
+
+@function percent($height, $width) {
+	$result : math.div($height, $width) * 100%;
+
+	@return $result;
+}

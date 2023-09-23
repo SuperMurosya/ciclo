@@ -1,0 +1,184 @@
+body {
+	font-family: "Quicksand";
+	@include adaptive("font-size", 25, 18);
+
+}
+
+.container {
+	@include adaptive("padding-left", $containerPadding, 15);
+	@include adaptive("padding-right", $containerPadding, 15);
+	// padding-top: rem(20);
+	// padding-bottom: rem(20);
+	flex: 1 1 auto;
+
+}
+
+
+main {
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
+	overflow: auto;
+	height: 100vh;
+	transition: all 1s ease 0s;
+	
+}
+
+section {
+	scroll-snap-align: center;
+	overflow-y: none;
+	// overflow-x: hidden;
+	@media (min-width: $mobilesmall) {
+		min-height: 100%;
+
+	}
+	// height: 100%;
+
+
+
+}
+
+
+
+
+.section-header {
+
+	&__text {
+		line-height: math.div(45, 18);
+		max-width: rem(540);
+	}
+
+	// .section-header__label
+
+	&__label {
+		color: $gray;
+		@include adaptive("font-size", 25, 18);
+		font-weight: 400;
+		line-height: normal;
+
+		&:not(:last-child) {
+			@include adaptive("margin-bottom", 32, 15);
+		}
+	}
+
+	// .section-header__title
+
+	&__title {
+
+		color: $black;
+		@include adaptive("font-size", 60, 35);
+
+		font-weight: 700;
+		line-height: normal;
+		max-width: rem(480);
+		&:not(:last-child) {
+			@include adaptive("margin-bottom", 132, 60);
+		}
+		&_big {
+			max-width: rem(890);
+		}
+	
+	}
+	&_lite {
+		.section-header__text {
+			color: #E3E6EC;
+
+
+		}
+		.section-header__title {
+
+			color: white;
+		}
+
+	}
+}
+
+.text {
+	color: $gray;
+	font-size: 25px;
+	font-weight: 400;
+	line-height: 1.8;
+}
+
+
+.title {
+	color: $black;
+	@include adaptive("font-size", 30, 20);
+	
+	font-weight: 700;
+	line-height: normal;
+}
+
+ .services {
+	display: grid;
+	@include adaptive("gap", 60, 30);
+
+	// .services__item
+
+	&__item {
+		display: flex;
+		align-items: center;
+		@include adaptive("gap", 50, 20);
+		@media (max-width: $mobilesmall) {
+			flex-direction: column;
+			align-items: flex-start;
+
+		}
+	}
+
+	// .services__icon
+
+	&__icon {
+		img {
+			max-width: rem(60);
+		}
+	}
+
+	// .services__body
+
+	
+
+	// .services__title
+
+	&__title {
+
+		&:not(:last-child) {
+			@include adaptive("margin-bottom", 32, 15);
+		}
+	}
+
+	// .services__text
+
+
+}
+
+
+
+
+
+/**
+Загальні стилі для табів
+
+*/
+
+
+/*
+.tabs {
+
+	.hide {
+		display: none;
+	}
+
+	.show {
+		display: flex;
+	}
+	._tab-active {
+			cursor: pointer;
+		}
+}
+
+*/
+
+
+/**
+* Кінець загальні стилі для табів
+*/

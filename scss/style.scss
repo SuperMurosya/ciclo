@@ -1,0 +1,27 @@
+
+@use 'sass:math';
+@import url(https://fonts.googleapis.com/css?family=Quicksand:regular,700&display=swap);
+
+
+
+
+$font-family: "Quicksand";
+$font-size: rem(25);
+
+
+$gray: #6A6E77;
+$black: #1C1F25;
+
+
+$mobilesmall: 320px;
+$mobile: 768px;
+$tablet: 1000px;
+
+@import "./blocks/base/_nullstyle";
+@import "./blocks/base/_function";
+@import "./blocks/_common";
+@import "./blocks/_header";
+@import "./blocks/_footer";
+@import "./blocks/_main";
+
+
