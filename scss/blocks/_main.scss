@@ -19,10 +19,9 @@
 			counter-increment: item;
 			content: counter(item, decimal-leading-zero);
 
-			@media (max-width: $mobilesmall) {
+			@media (max-width: $mobilemedium) {
 				top: rem(20);
 				right: 50%;
-
 			}
 		}
 
@@ -31,7 +30,6 @@
 		&_center {
 			display: flex;
 			align-items: center;
-
 		}
 
 	}
@@ -77,7 +75,9 @@
 
 	// .main__img
 
-	&__img {}
+	&__img {
+		height: 80%;
+	}
 
 
 	img {
@@ -87,6 +87,17 @@
 		height: 100%;
 		top: 0;
 		left: 0;
+	}
+
+	@media (max-width: 768px) {
+		.screen-01__body {
+			position: static;
+		}
+
+		.section-header__label {
+			color: #e9ebef;
+		}
+
 	}
 
 }
@@ -103,10 +114,20 @@
 
 	&__container {
 
+
+		@media (max-width: $mobile) {
+			padding-right: 0;
+		}
+
 		@media (min-width: $mobilesmall) {
 			min-height: 100%;
 			display: flex;
 			align-items: flex-start;
+		}
+
+		@media (max-width: $mobilemedium) {
+			@include adaptive("padding-right", $containerPadding, 15);
+			flex-direction: column;
 		}
 	}
 
@@ -135,12 +156,18 @@
 		flex: 0 1 50%;
 		position: relative;
 
-		//padding-bottom: 55%;
-		@media (min-width: $mobilesmall) {
-			height: 75vh;
+		@media (max-width: $mobile) {
+			height: 100vh;
 		}
 
-		height: 40vh;
+		//padding-bottom: 55%;
+		@media (max-width: $mobilemedium) {
+			height: 25vh;
+			width: 100%;
+			flex: none;
+		}
+
+		height: 100vh;
 		// width: 50%;
 
 		img {
@@ -277,6 +304,8 @@
 	&__section {}
 }
 
+
+
 .screen-04 {
 
 	// .screen-04__container
@@ -296,6 +325,11 @@
 	// .screen-04__content
 
 	&__section-header {
+
+		@media (max-width: $mobilemedium) {
+			margin-top: 20px;
+		}
+
 		&:not(:last-child) {
 			@include adaptive ("margin-bottom", 158, 35);
 		}
@@ -315,13 +349,42 @@
 	@include adaptive("gap", 50, 20);
 	// .advantages__item
 
-	&__item {}
+	&__item {
+		@media (max-width: $mobile) {
+			display: grid;
+			grid-template-columns: 50px 1fr;
+			grid-template-rows: max-content 1fr;
+			column-gap: 14px;
+		}
+
+		@media (max-width: 360px) {
+			display: block;
+		}
+
+	}
 
 	// .advantages__icon
 
 	&__icon {
+		@media (max-width: $mobile) {
+			grid-row: 1 / 3;
+			align-self: center;
+		}
+
+		@media (max-width: 360px) {
+			display: none;
+		}
+
 		&:not(:last-child) {
 			@include adaptive("margin-bottom", 26, 18);
+		}
+
+		img {
+			max-width: rem(42);
+
+			@media (max-width: $mobile) {
+				max-width: 25px;
+			}
 		}
 	}
 
@@ -353,7 +416,9 @@
 	// .screen-05__container
 
 	&__container {
-
+		@media (max-width: $mobile) {
+			padding-right: 0;
+		}
 
 		@media (min-width: $mobilesmall) {
 			min-height: 100%;
@@ -371,6 +436,14 @@
 		padding-top: rem(50);
 		padding-bottom: rem(30);
 
+		@media (max-width: $mobile) {
+			flex: 0 1 60%;
+		}
+
+		@media (max-width: $mobilemedium) {
+			flex: 0 1 65%;
+		}
+
 		@media (min-width: $mobilesmall) {
 			padding-bottom: rem(50);
 			padding-right: rem(20);
@@ -387,6 +460,14 @@
 		flex: 0 1 50%;
 		flex-direction: column;
 		position: relative;
+
+		@media (max-width: $mobile) {
+			flex: 0 1 40%;
+		}
+
+		@media (max-width: $mobilemedium) {
+			flex: 0 1 35%;
+		}
 
 		//padding-bottom: 55%;
 		@media (min-width: $mobilesmall) {
@@ -440,17 +521,27 @@
 		@media (min-width: $mobilesmall) {
 			min-height: 100%;
 			display: flex;
+			gap: 20px;
 			align-items: center;
 		}
+
+		@media (max-width: $mobilemedium) {
+			display: block;
+		}
+
 	}
 
 	&__section-header {
-		flex: 0 1 50%;
+		flex: 0 1 46%;
 
-		@media (min-width: $mobilesmall) {
 
-			padding-right: rem(20);
+		@media (max-width: $mobilemedium) {
+			margin-bottom: 36px;
+
+
 		}
+
+
 
 		@media (max-width: $mobilesmall) {
 			padding-bottom: rem(30);
@@ -458,7 +549,7 @@
 	}
 
 	&__services {
-		flex: 0 1 50%;
+		flex: 0 1 64%;
 	}
 }
 
@@ -480,6 +571,7 @@
 			min-height: 100%;
 			display: flex;
 			align-items: center;
+			gap: 6px;
 		}
 	}
 
@@ -493,6 +585,10 @@
 
 		@media (min-width: $mobilesmall) {
 			padding-bottom: rem(50);
+		}
+
+		@media (max-width: $mobilemedium) {
+			flex: 0 1 75%;
 		}
 	}
 
@@ -512,6 +608,10 @@
 
 		@media (min-width: $mobilesmall) {
 			height: 100vh;
+		}
+
+		@media (max-width: $mobilemedium) {
+			flex: 0 1 25%;
 		}
 
 		// width: 50%;
@@ -546,6 +646,10 @@
 			flex-direction: row-reverse;
 			align-items: flex-start;
 		}
+
+		@media (max-width: $mobile) {
+			padding-left: 0;
+		}
 	}
 
 	// .screen-03__content
@@ -560,6 +664,10 @@
 		@media (min-width: $mobilesmall) {
 			padding-bottom: rem(50);
 			@include adaptive("padding-left", 240, 20);
+		}
+
+		@media (max-width: $mobilemedium) {
+			flex: 0 1 65%;
 		}
 	}
 
@@ -580,6 +688,10 @@
 
 		@media (min-width: $mobilesmall) {
 			height: 100vh;
+		}
+
+		@media (max-width: $mobilemedium) {
+			flex: 0 1 35%;
 		}
 
 		// width: 50%;
@@ -686,6 +798,7 @@
 
 		@media (max-width: $tablet) {
 			@include adaptive("margin-bottom", 50, 20);
+			padding: 1.25rem;
 
 		}
 	}
@@ -721,7 +834,7 @@
 	}
 
 	@media (max-width: $mobile) {
-		flex-direction: column;
+		//flex-direction: column;
 	}
 
 	&__body {
@@ -780,7 +893,7 @@
 		@media (max-width: $mobile) {
 			padding-top: rem(50);
 			flex-direction: column;
-			gap: rem(30);
+			gap: 1vh;
 		}
 	}
 
@@ -794,7 +907,7 @@
 
 		@media (max-width: $mobile) {
 			flex-direction: column;
-			gap: rem(20);
+			gap: 1vh;
 		}
 	}
 
@@ -816,6 +929,10 @@
 		flex-basis: 57.407407vh;
 		position: relative;
 
+		@media (max-width: $mobile) {
+			flex-basis: 10vh;
+		}
+
 		img {
 			position: absolute;
 			object-fit: cover;
@@ -823,6 +940,22 @@
 			height: 100%;
 			top: 0;
 			right: 0;
+		}
+	}
+
+	@media (max-width: $mobile) {
+		.screen-10__container {
+			padding-top: 0;
+		}
+
+		.screen-10 .screen-10__item {
+			flex-grow: 1;
+			flex-basis: 10vh;
+			//display: block;
+		}
+
+		&__img {
+			height: 10%;
 		}
 	}
 
@@ -891,6 +1024,7 @@
 
 		@media (max-width: $mobile) {
 			margin-bottom: rem(30);
+			padding-left: 0;
 		}
 	}
 
@@ -929,6 +1063,11 @@
 			top: 0;
 			right: 0;
 		}
+
+		@media (max-width: $mobile) {
+			flex: none;
+			height: 100px;
+		}
 	}
 }
 
@@ -960,6 +1099,7 @@
 			top: 0;
 			left: 0;
 			background: rgba(28, 31, 37, 0.6);
+
 			@media (max-width: $mobile) {
 				background: rgba(28, 31, 37, 0.9);
 			}
@@ -981,6 +1121,7 @@
 		align-items: center;
 		position: relative;
 		z-index: 2;
+
 		@media (max-width: $mobile) {
 			flex-direction: column;
 			gap: rem(30);
@@ -999,7 +1140,7 @@
 	// .screen-12__value
 
 	&__value {
-	@include adaptive("font-size", 60, 35);
+		@include adaptive("font-size", 60, 35);
 		font-weight: 700;
 		line-height: normal;
 	}

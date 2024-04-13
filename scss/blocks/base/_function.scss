@@ -59,7 +59,7 @@ $rem-base: 16;
 
 
 @function rem($pixel) {
-	$result : math.div($pixel, $rem-base) + rem;
+	$result : math.div($pixel, 16) + rem;
 	@return $result;
 }
 
